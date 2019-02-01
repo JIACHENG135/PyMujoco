@@ -2,6 +2,7 @@
 from pyh import *
 import time
 import collections
+import copy
 from MjMap import *
 
 
@@ -46,56 +47,66 @@ class Dfs(object):
 		def changenameany(classname):
 			fname = chr(ord(classname[0])+32) + classname[1:]
 			return fname
-		def genetag(tagname):
-			if tagname == "site":
-				tag = site(site = "s0")
-			tag = eval(tagname+"()")
-			tag = eval('tag.'+changenameany(tagname))
+		def genetag(tagname,selfname):
+			# print(tagname)
+			if "customize" in dbar[selfname]:
+				customize = dbar[selfname][1][1]
+				# print('customize',customize)
+				tag = eval(tagname + '(customize)')
+				# tag = eval(tagname+"()")
+				tag = eval('tag.'+changenameany(tagname))
+			# if tagname == "site":
+			# 	tag = site(site = "s0")
+			else:
+				tag = eval(tagname+"()")
+				tag = eval('tag.'+changenameany(tagname))
 			return tag
 
 
 		fname,selfname =self.changename()
 		dbar = getattr(MjMap,'dbar')
+		q = collections.deque()
+		q.append([selfname,[[]]])
+		tdict = copy.deepcopy(dbar)
 		if "customize" in dbar[selfname]:
-			customize = dbar[selfname][1][1]
-			eval(fname + '(customize)')
-		else:
-			q = collections.deque()
-			q.append([selfname,[[]]])
-			while q:
-				cur,paths= q.popleft()
+			tdict[selfname] = tdict[selfname][2:]
+		# else:
+		# 	tdict = tdict[selfname]
+		while q:
+			cur,paths= q.popleft()
+			tmp = list(paths)
+			Flag = False
+			for e in tdict[cur]:
+				tmp.append([e[0],e[1]])
+				q.append([e[0],tmp])
 				tmp = list(paths)
-				Flag = False
-				for e in dbar[cur]:
-					tmp.append([e[0],e[1]])
-					q.append([e[0],tmp])
-					tmp = list(paths)
-					Flag = True
-				if not Flag:
-					# self.mem.append(paths)
-					__mem__.append(paths)
-					path.append(paths)
-			tags,num = [],[]
-			for i in path:
-				for e in i:
-					print(e,'edges')
-					if e:
-						tags.append(genetag(e[0]))
-						num.append(e[1])
-			# print(self.mem)
-			while len(tags)>=2:
-				parent = tags[-2]
-				kid = tags[-1]
-				while num[-1]>0:
-					parent<<kid
-					num[-1]-=1
-				tags.pop()
-				num.pop()
-			tmp = eval(fname+'()')
+				Flag = True
+			if not Flag:
+				# self.mem.append(paths)
+				__mem__.append(paths)
+				path.append(paths)
+		tags,num = [],[]
+		for i in path:
+			for e in i:
+				# print(e,'edges')
+				if e:
+					tags.append(genetag(e[0],selfname))
+					num.append(e[1])
+		# print(self.mem)
+		while len(tags)>=2:
+			parent = tags[-2]
+			kid = tags[-1]
 			while num[-1]>0:
-				tmp<<tags[0]
+				parent<<kid
 				num[-1]-=1
-			setattr(self,fname,tmp)
+			tags.pop()
+			num.pop()
+
+		tmp = eval(fname+'()')
+		while num[-1]>0:
+			tmp<<tags[0]
+			num[-1]-=1
+		setattr(self,fname,tmp)
 
 
 
@@ -111,22 +122,39 @@ class Change(object):
 	def add(self,attrname,value):
 		setattr(self, attrname, value)
 
-	def addAtt(self):
-		selfname = type(self).__name__
-		selfname = chr(ord(selfname[0])+32) + selfname[1:]
-		# obname = type(ob).__name__
-		# obname = chr(ord(obname[0])+32) + obname[1:]
-		# self.size = size(nconmax = self.nconmax,)
+	def addAtt(self,customize = 0):
+		if not customize:
+			selfname = type(self).__name__
+			selfname = chr(ord(selfname[0])+32) + selfname[1:]
+			# obname = type(ob).__name__
+			# obname = chr(ord(obname[0])+32) + obname[1:]
+			# self.size = size(nconmax = self.nconmax,)
 
-		strogeom = selfname + '('
-		for i in dir(self):
-			if '_' not in i and i not in ['add','change','fstr','addAtt',selfname]:
-				strogeom += i+'=' + 'self' + '.'+i + ','
-		strogeom += ')'
-		# print(strogeom)
-		tmp = eval(strogeom)
-		# eval
-		setattr(self,selfname,tmp)
+			strogeom = selfname + '('
+			for i in dir(self):
+				if '_' not in i and i not in ['add','change','fstr','addAtt',selfname]:
+					strogeom += i+'=' + 'self' + '.'+i + ','
+			strogeom += ')'
+			# print(strogeom)
+			tmp = eval(strogeom)
+			# eval
+			setattr(self,selfname,tmp)
+		else:
+			selfname = type(self).__name__
+			selfname = chr(ord(selfname[0])+32) + selfname[1:]
+			# obname = type(ob).__name__
+			# obname = chr(ord(obname[0])+32) + obname[1:]
+			# self.size = size(nconmax = self.nconmax,)
+
+			strogeom = selfname + '('
+			for i in dir(self):
+				if '_' not in i and i not in ['add','change','fstr','addAtt']:
+					strogeom += i+'=' + 'self' + '.'+i + ','
+			strogeom += ')'
+			# print(strogeom)
+			tmp = eval(strogeom)
+			# eval
+			setattr(self,selfname,tmp)
 
 
 
@@ -183,11 +211,21 @@ class Visual(Change):
 
 
 class Muscle(Change):
-	def __init__(self,ctrllimited = "true",ctrlrange="0 1"):
-		self.ctrlrange = ctrlrange
-		self.ctrllimited = ctrllimited
-		self.addAtt()
-
+	def __init__(self,customize = 0,ctrllimited = "true",ctrlrange="0 1"):
+		if not customize:
+			self.ctrlrange = ctrlrange
+			self.ctrllimited = ctrllimited
+			self.addAtt()
+		else:
+			# print(customize)
+			# for att,value in customize:
+				# print(i)
+			l = len(customize)
+			for i in range(l//2):
+				setattr(self,customize[2*i],customize[2*i+1])
+			# a = eval("self." + customize[0])
+			# a = customize[1]
+			self.addAtt(1)
 		Print.__init__(self)
 
 class Default(Change,Dfs):
@@ -307,10 +345,14 @@ class Site(Change):
 			# self.dfs()
 			self.addAtt()
 		else:
-			for att,value in customize:
-				setattr(self,att,value)
-			self.addAtt()
-		# Print.__init__(self)
+			print(customize)
+			# for att,value in customize:
+				# print(i)
+			setattr(self,customize[0],customize[1])
+			# a = eval("self." + customize[0])
+			# a = customize[1]
+			self.addAtt(1)
+		Print.__init__(self)
 
 
 
@@ -321,30 +363,30 @@ class Site(Change):
 
 
 
-class Geom(Change,Dfs):
+class Geom(Change):
 	def __init__(self,fromto="0 0 0  0 1 0",name="bar",rgba=".5 .1 .1 1",size="0.04",type="capsule"):
 		self.name = name
 		self.type = type
 		self.size = size
 		self.fromto = fromto
 		self.rgba = rgba
-		# self.addAtt()
-		self.mem = []
-		self.dfs()
+		self.addAtt()
+		# self.mem = []
+		# self.dfs()
 
 		Print.__init__(self)
 
-class Joint(Change,Dfs):
+class Joint(Change):
 	def __init__(self,name="center2",range="-90 90"):
 		self.name= name
 		self.range = range
-		# self.addAtt()
-		self.mem = []
-		self.dfs()
+		self.addAtt()
+		# self.mem = []
+		# self.dfs()
 
 		Print.__init__(self)
 
-class Light(Change,Dfs):
+class Light(Change):
 	def __init__(self,directional="true",diffuse=".8 .8 .8",specular = ".2 .2 .2",pos="0 0 5",dir="0 0 -1"):
 		# Body.__init__(self,pos)
 		self.directional = directional
@@ -352,19 +394,20 @@ class Light(Change,Dfs):
 		self.specular = specular
 		self.pos = pos
 		self.dir = dir
-		self.mem = []
-		self.dfs()
-		# self.addAtt()
+		# self.mem = []
+		# self.dfs()
+		self.addAtt()
 		Print.__init__(self)
 
 
 
-class Body(Change,Dfs):
+class Body(Change):
 	# def __init__
 	def __init__(self,pos):
 		self.body = body(pos=pos)
-		self.mem = []
-		self.dfs()
+		# self.mem = []
+		# self.dfs()
+		self.addAtt()
 		Print.__init__(self)
 
 

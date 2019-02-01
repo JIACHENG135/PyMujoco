@@ -10,7 +10,7 @@ from MjMap import *
 # print(osite.site.attributes["name"])
 # olight = Light()
 # size = Size()
-# omuscle = Muscle()
+omuscle = Muscle()
 # odef = Default()
 # print(odef.default.render())
 # # osite<<olight
@@ -28,13 +28,19 @@ from MjMap import *
 # print(ct.connect.render())
 # te = Tendon()
 # eq = Equality()
-# gm = Geom()
+gm = Geom()
+
+
+ac= Actuator()
+
 sp = Spatial()
 # print(de.default.render())
 # print(sp.spatial.render())
 # print(te.tendon.render())
 print(sp.spatial.render())
-# print(Gemo.geom.render())
+# print(omuscle.muscle.render())
+print(ac.actuator.render())
+print(gm.geom.render())
 
 # print(eq.equality.render())
 
