@@ -6,7 +6,7 @@ import copy
 from MjMap import *
 
 
-__mem__ = []
+# __mem__ = []
 
 class Print(object):
 	def __init__(self):
@@ -64,6 +64,7 @@ class Dfs(object):
 
 
 		fname,selfname =self.changename()
+		print(fname)
 		dbar = getattr(MjMap,'dbar')
 		q = collections.deque()
 		q.append([selfname,[[]]])
@@ -83,12 +84,12 @@ class Dfs(object):
 				Flag = True
 			if not Flag:
 				# self.mem.append(paths)
-				__mem__.append(paths)
+				# __mem__.append(paths)
 				path.append(paths)
 		tags,num = [],[]
 		for i in path:
 			for e in i:
-				# print(e,'edges')
+				print(e,'edges')
 				if e:
 					tags.append(genetag(e[0],selfname))
 					num.append(e[1])
@@ -202,11 +203,13 @@ class Rgba(Change):
 		self.addAtt()
 		Print.__init__(self)
 
-class Visual(Change):
+class Visual(Change,Dfs):
 	def __init__(self):
-		orgba = Rgba()
-		self.visual = visual()
-		self.visual<<rgba(haze=orgba.haze)
+		# orgba = Rgba()
+		# self.visual = visual()
+		# self.visual<<Rgba(haze=orgba.haze)
+		self.mem = []
+		self.dfs()
 		Print.__init__(self)
 
 
@@ -232,7 +235,7 @@ class Default(Change,Dfs):
 	def __init__(self):
 		# selfname = type(self).__name__
 		self.mem = []
-		self.default = default()
+		# self.default = default()
 		# dbar = getattr(MjMap,'dbar')
 		# for v in dbar[selfname]:
 		# 	tmp = eval(v+'()')
@@ -272,19 +275,21 @@ class Material(Change):
 
 
 
-class Asset(Change):
+class Asset(Change,Dfs):
 	def __init__(self):
-		selfname = type(self).__name__
-		self.Asset = asset()
-		dbar = getattr(MjMap,'dbar')
-		for v in dbar[selfname]:
-			if not dbar[v]:
-				tmp = eval(v+'()')
-				# if v == 'Joint':
-				# 	ojoint = joint(type="hinge",pos="0 0 0",axis="1 0 0",limited="false",range="-180 180",damping="1000")
-				# 	self.default<<ojoint
-				# else:
-				eval('self.default<<tmp.'+chr(ord(v[0])+32)+v[1:])
+		# selfname = type(self).__name__
+		# self.Asset = asset()
+		# dbar = getattr(MjMap,'dbar')
+		# for v in dbar[selfname]:
+		# 	if not dbar[v]:
+		# 		tmp = eval(v+'()')
+		# 		# if v == 'Joint':
+		# 		# 	ojoint = joint(type="hinge",pos="0 0 0",axis="1 0 0",limited="false",range="-180 180",damping="1000")
+		# 		# 	self.default<<ojoint
+		# 		# else:
+		# 		eval('self.default<<tmp.'+chr(ord(v[0])+32)+v[1:])
+		self.mem = []
+		self.dfs()
 		Print.__init__(self)
 
 class Connect(Change):
@@ -410,7 +415,12 @@ class Body(Change):
 		self.addAtt()
 		Print.__init__(self)
 
-
+class Mujoco(Change,Dfs):
+	def __init__(self,modelname = "dbar"):
+		self.mujoco = mujoco(model = modelname)
+		# self.model = model
+		self.mem = []
+		self.dfs()
 # if __name__ == '__main__':
 	# ogeom = Geom("steel","barmoohow","1000","1 0 0  0 100 0")
 	# ojoint = Joint()

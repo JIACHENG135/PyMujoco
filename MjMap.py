@@ -1,7 +1,8 @@
 from collections import *
 class MjMap(object):
     dbar = defaultdict(list)
-    dbar["Mujoco"] = [("Option",1),("Size",1),("Visual",1),("Defaul",1),("Asset",1),("Worldbody",1),("Equality",1),("Tendon",1),("Actuator",1)]
+    dbar["Mujoco"] = [("Option",1),("Size",1),("Asset",1),("Equality",1),("Default",1),("Tendon",1),("Actuator",1)]
+    # ("Visual",1),
     dbar["Default"] = [("Joint",1),("Muscle",3),("Site",1)]
     dbar["Visual"] = [("Rgba",1)]
     dbar["Asset"] = [("Texture",2),("Material")]
