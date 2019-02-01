@@ -27,12 +27,18 @@ from MjMap import *
 # ct = Connect()
 # print(ct.connect.render())
 # te = Tendon()
-eq = Equality()
-# sp = Spatial()
+# eq = Equality()
+# gm = Geom()
+sp = Spatial()
 # print(de.default.render())
 # print(sp.spatial.render())
 # print(te.tendon.render())
-print(eq.equality.render())
+print(sp.spatial.render())
+# print(Gemo.geom.render())
+
+# print(eq.equality.render())
+
+
 # osite.site<<omuscle.muscle
 # omuscle.muscle.attributes['ctrlrange'] = '0 2'
 # osite.site<<omuscle.muscle

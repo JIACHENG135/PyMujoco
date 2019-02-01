@@ -7,8 +7,9 @@ class MjMap(object):
     dbar["Asset"] = [("Texture",2),("Material")]
     dbar["Equality"] = [("Connect",2)]
     dbar["Tendon"] = [("Spatial",3)]
-    dbar["Spatial"] = [("Site",2)]
+    dbar["Spatial"] = ["customize",("customize",("site",[])),("Site",3)]
     dbar["Actuator"] = [("Muscle",2)]
+    # dbar["Site"] = [()]
 
 
     def __init__(self):
