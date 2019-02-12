@@ -1,0 +1,1592 @@
+<mujoco model="dbar">
+
+    <option timestep="0.01" iterations="50" solver="Newton" tolerance="1e-10" gravity = "0 0 0" collision="predefined" viscosity=".5"/>
+
+    <size njmax="5000" nconmax="1000" nstack="20000"/>
+
+    <visual>
+        <rgba haze=".3 .3 .3 1"/>
+    </visual>
+
+    <default>
+        <position ctrllimited="false" ctrlrange="-1 1" gear="1.0"/>
+        <tendon damping="2"/>
+        <geom size="0.02"/>
+        <site size="0.04"/>
+    </default>
+
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.6 0.6 0.6" rgb2="0 0 0" width="512" height="512"/> 
+
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".25 .25 .25" rgb2=".3 .3 .3" width="512" height="512" mark="cross" markrgb=".8 .8 .8"/>  
+
+        <material name="matplane" reflectance="0.3" texture="texplane" texrepeat="1 1" texuniform="true"/>
+    </asset>
+<worldbody>
+<geom name="floor" pos="0 0 10" size="0 0 1" type="plane" material="matplane">
+</geom>
+<light directional="true" diffuse=".8 .8 .8" specular=".2 .2 .2" pos="0 0 5" dir="0 0 -1">
+</light>
+<site name="s0" pos="0 0 0" size="0.1">
+</site>
+<body name="body0" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body0" type="capsule" fromto="0 0 0 0.4885 0.     0.1309" rgba=".5 .1 .1 1">
+</geom>
+<site name="site0" pos="0 0 0">
+</site>
+<site name="site1" pos="0.4885 0.     0.1309">
+</site>
+</body>
+<body name="body1" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body1" type="capsule" fromto="0 0 0 0.5    0.0382 0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site2" pos="0.5    0.0382 0.0658">
+</site>
+</body>
+<body name="body2" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body2" type="capsule" fromto="0 0 0  0.5    -0.0382  0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site3" pos=" 0.5    -0.0382  0.0658">
+</site>
+</body>
+<body name="body3" pos="0.9923 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body3" type="capsule" fromto="0 0 0 -0.5038  0.     -0.0441" rgba=".5 .1 .1 1">
+</geom>
+<site name="site4" pos="0 0 0">
+</site>
+</body>
+<body name="body4" pos="0.9923 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body4" type="capsule" fromto="0 0 0 -0.4923  0.0382 -0.1092" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body5" pos="0.9923 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body5" type="capsule" fromto="0 0 0 -0.4923 -0.0382 -0.1092" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body6" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body6" type="capsule" fromto="0 0 0 -0.5038  0.      0.0441" rgba=".5 .1 .1 1">
+</geom>
+<site name="site5" pos="0 0 0">
+</site>
+<site name="site6" pos="-0.5038  0.      0.0441">
+</site>
+</body>
+<body name="body7" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body7" type="capsule" fromto="0 0 0 -0.5038 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site7" pos="-0.5038 -0.0382 -0.0221">
+</site>
+</body>
+<body name="body8" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body8" type="capsule" fromto="0 0 0 -0.5038  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site8" pos="-0.5038  0.0382 -0.0221">
+</site>
+</body>
+<body name="body9" pos="0.9923 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body9" type="capsule" fromto="0 0 0 0.5039 0.     0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body10" pos="0.9923 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body10" type="capsule" fromto="0 0 0  0.5039 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body11" pos="0.9923 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body11" type="capsule" fromto="0 0 0  0.5039  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body12" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body12" type="capsule" fromto="0 0 0 0.5    0.0379 0.0659" rgba=".5 .1 .1 1">
+</geom>
+<site name="site9" pos="0.5    0.0379 0.0659">
+</site>
+</body>
+<body name="body13" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body13" type="capsule" fromto="0 0 0  5.00e-01  7.62e-02 -1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site10" pos=" 5.00e-01  7.62e-02 -1.00e-04">
+</site>
+</body>
+<body name="body14" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body14" type="capsule" fromto="0 0 0  5.058e-01  0.000e+00 -1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site11" pos=" 5.058e-01  0.000e+00 -1.000e-04">
+</site>
+</body>
+<body name="body15" pos="1.0038 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body15" type="capsule" fromto="0 0 0 -0.5038 -0.0382  0.0222" rgba=".5 .1 .1 1">
+</geom>
+<site name="site12" pos="0 0 0">
+</site>
+</body>
+<body name="body16" pos="1.0038 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body16" type="capsule" fromto="0 0 0 -5.038e-01  1.000e-04 -4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body17" pos="1.0038 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body17" type="capsule" fromto="0 0 0 -0.498  -0.0761 -0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body18" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body18" type="capsule" fromto="0 0 0 -0.5038  0.0385 -0.0219" rgba=".5 .1 .1 1">
+</geom>
+<site name="site13" pos="-0.5038  0.0385 -0.0219">
+</site>
+</body>
+<body name="body19" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body19" type="capsule" fromto="0 0 0 -4.981e-01 -3.000e-04 -8.750e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site14" pos="-4.981e-01 -3.000e-04 -8.750e-02">
+</site>
+</body>
+<body name="body20" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body20" type="capsule" fromto="0 0 0 -0.4923  0.0759 -0.0875" rgba=".5 .1 .1 1">
+</geom>
+<site name="site15" pos="-0.4923  0.0759 -0.0875">
+</site>
+</body>
+<body name="body21" pos="1.0038 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body21" type="capsule" fromto="0 0 0  0.4924 -0.0376  0.1094" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body22" pos="1.0038 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body22" type="capsule" fromto="0 0 0  0.4981 -0.0764  0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body23" pos="1.0038 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body23" type="capsule" fromto="0 0 0  5.039e-01 -2.000e-04  4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body24" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body24" type="capsule" fromto="0 0 0  0.5    -0.0379  0.0659" rgba=".5 .1 .1 1">
+</geom>
+<site name="site16" pos=" 0.5    -0.0379  0.0659">
+</site>
+</body>
+<body name="body25" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body25" type="capsule" fromto="0 0 0  5.058e-01  0.000e+00 -1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site17" pos=" 5.058e-01  0.000e+00 -1.000e-04">
+</site>
+</body>
+<body name="body26" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body26" type="capsule" fromto="0 0 0  5.00e-01 -7.62e-02 -1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site18" pos=" 5.00e-01 -7.62e-02 -1.00e-04">
+</site>
+</body>
+<body name="body27" pos=" 1.0038 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body27" type="capsule" fromto="0 0 0 -0.5038  0.0382  0.0222" rgba=".5 .1 .1 1">
+</geom>
+<site name="site19" pos="0 0 0">
+</site>
+</body>
+<body name="body28" pos=" 1.0038 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body28" type="capsule" fromto="0 0 0 -0.498   0.0761 -0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body29" pos=" 1.0038 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body29" type="capsule" fromto="0 0 0 -5.038e-01 -1.000e-04 -4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body30" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body30" type="capsule" fromto="0 0 0 -0.5038 -0.0385 -0.0219" rgba=".5 .1 .1 1">
+</geom>
+<site name="site20" pos="-0.5038 -0.0385 -0.0219">
+</site>
+</body>
+<body name="body31" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body31" type="capsule" fromto="0 0 0 -0.4923 -0.0759 -0.0875" rgba=".5 .1 .1 1">
+</geom>
+<site name="site21" pos="-0.4923 -0.0759 -0.0875">
+</site>
+</body>
+<body name="body32" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body32" type="capsule" fromto="0 0 0 -4.981e-01  3.000e-04 -8.750e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site22" pos="-4.981e-01  3.000e-04 -8.750e-02">
+</site>
+</body>
+<body name="body33" pos=" 1.0038 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body33" type="capsule" fromto="0 0 0 0.4924 0.0376 0.1094" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body34" pos=" 1.0038 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body34" type="capsule" fromto="0 0 0 5.039e-01 2.000e-04 4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body35" pos=" 1.0038 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body35" type="capsule" fromto="0 0 0 0.4981 0.0764 0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body36" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body36" type="capsule" fromto="0 0 0 -0.4885  0.      0.1309" rgba=".5 .1 .1 1">
+</geom>
+<site name="site23" pos="0 0 0">
+</site>
+<site name="site24" pos="-0.4885  0.      0.1309">
+</site>
+</body>
+<body name="body37" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body37" type="capsule" fromto="0 0 0 -0.5    -0.0382  0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site25" pos="-0.5    -0.0382  0.0658">
+</site>
+</body>
+<body name="body38" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body38" type="capsule" fromto="0 0 0 -0.5     0.0382  0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site26" pos="-0.5     0.0382  0.0658">
+</site>
+</body>
+<body name="body39" pos="3.0077 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body39" type="capsule" fromto="0 0 0  0.5038  0.     -0.0441" rgba=".5 .1 .1 1">
+</geom>
+<site name="site27" pos="0 0 0">
+</site>
+</body>
+<body name="body40" pos="3.0077 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body40" type="capsule" fromto="0 0 0  0.4923 -0.0382 -0.1092" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body41" pos="3.0077 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body41" type="capsule" fromto="0 0 0  0.4923  0.0382 -0.1092" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body42" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body42" type="capsule" fromto="0 0 0 0.5038 0.     0.0441" rgba=".5 .1 .1 1">
+</geom>
+<site name="site28" pos="0.5038 0.     0.0441">
+</site>
+</body>
+<body name="body43" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body43" type="capsule" fromto="0 0 0  0.5038  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site29" pos=" 0.5038  0.0382 -0.0221">
+</site>
+</body>
+<body name="body44" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body44" type="capsule" fromto="0 0 0  0.5038 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site30" pos=" 0.5038 -0.0382 -0.0221">
+</site>
+</body>
+<body name="body45" pos="3.0077 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body45" type="capsule" fromto="0 0 0 -0.5039  0.      0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body46" pos="3.0077 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body46" type="capsule" fromto="0 0 0 -0.5039  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body47" pos="3.0077 0.     0.175 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body47" type="capsule" fromto="0 0 0 -0.5039 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body48" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body48" type="capsule" fromto="0 0 0 -0.5    -0.0379  0.0659" rgba=".5 .1 .1 1">
+</geom>
+<site name="site31" pos="-0.5    -0.0379  0.0659">
+</site>
+</body>
+<body name="body49" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body49" type="capsule" fromto="0 0 0 -5.00e-01 -7.62e-02 -1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site32" pos="-5.00e-01 -7.62e-02 -1.00e-04">
+</site>
+</body>
+<body name="body50" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body50" type="capsule" fromto="0 0 0 -5.058e-01  0.000e+00 -1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site33" pos="-5.058e-01  0.000e+00 -1.000e-04">
+</site>
+</body>
+<body name="body51" pos=" 2.9962 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body51" type="capsule" fromto="0 0 0 0.5038 0.0382 0.0222" rgba=".5 .1 .1 1">
+</geom>
+<site name="site34" pos="0 0 0">
+</site>
+</body>
+<body name="body52" pos=" 2.9962 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body52" type="capsule" fromto="0 0 0  5.038e-01 -1.000e-04 -4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body53" pos=" 2.9962 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body53" type="capsule" fromto="0 0 0  0.498   0.0761 -0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body54" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body54" type="capsule" fromto="0 0 0  0.5038 -0.0385 -0.0219" rgba=".5 .1 .1 1">
+</geom>
+<site name="site35" pos=" 0.5038 -0.0385 -0.0219">
+</site>
+</body>
+<body name="body55" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body55" type="capsule" fromto="0 0 0  4.981e-01  3.000e-04 -8.750e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site36" pos=" 4.981e-01  3.000e-04 -8.750e-02">
+</site>
+</body>
+<body name="body56" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body56" type="capsule" fromto="0 0 0  0.4923 -0.0759 -0.0875" rgba=".5 .1 .1 1">
+</geom>
+<site name="site37" pos=" 0.4923 -0.0759 -0.0875">
+</site>
+</body>
+<body name="body57" pos=" 2.9962 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body57" type="capsule" fromto="0 0 0 -0.4924  0.0376  0.1094" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body58" pos=" 2.9962 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body58" type="capsule" fromto="0 0 0 -0.4981  0.0764  0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body59" pos=" 2.9962 -0.0761  0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body59" type="capsule" fromto="0 0 0 -5.039e-01  2.000e-04  4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body60" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body60" type="capsule" fromto="0 0 0 -0.5     0.0379  0.0659" rgba=".5 .1 .1 1">
+</geom>
+<site name="site38" pos="-0.5     0.0379  0.0659">
+</site>
+</body>
+<body name="body61" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body61" type="capsule" fromto="0 0 0 -5.058e-01  0.000e+00 -1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site39" pos="-5.058e-01  0.000e+00 -1.000e-04">
+</site>
+</body>
+<body name="body62" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body62" type="capsule" fromto="0 0 0 -5.00e-01  7.62e-02 -1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site40" pos="-5.00e-01  7.62e-02 -1.00e-04">
+</site>
+</body>
+<body name="body63" pos="2.9962 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body63" type="capsule" fromto="0 0 0  0.5038 -0.0382  0.0222" rgba=".5 .1 .1 1">
+</geom>
+<site name="site41" pos="0 0 0">
+</site>
+</body>
+<body name="body64" pos="2.9962 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body64" type="capsule" fromto="0 0 0  0.498  -0.0761 -0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body65" pos="2.9962 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body65" type="capsule" fromto="0 0 0  5.038e-01  1.000e-04 -4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body66" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body66" type="capsule" fromto="0 0 0  0.5038  0.0385 -0.0219" rgba=".5 .1 .1 1">
+</geom>
+<site name="site42" pos=" 0.5038  0.0385 -0.0219">
+</site>
+</body>
+<body name="body67" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body67" type="capsule" fromto="0 0 0  0.4923  0.0759 -0.0875" rgba=".5 .1 .1 1">
+</geom>
+<site name="site43" pos=" 0.4923  0.0759 -0.0875">
+</site>
+</body>
+<body name="body68" pos="2.    0.    0.175">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body68" type="capsule" fromto="0 0 0  4.981e-01 -3.000e-04 -8.750e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site44" pos=" 4.981e-01 -3.000e-04 -8.750e-02">
+</site>
+</body>
+<body name="body69" pos="2.9962 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body69" type="capsule" fromto="0 0 0 -0.4924 -0.0376  0.1094" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body70" pos="2.9962 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body70" type="capsule" fromto="0 0 0 -5.039e-01 -2.000e-04  4.380e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body71" pos="2.9962 0.0761 0.0437">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body71" type="capsule" fromto="0 0 0 -0.4981 -0.0764  0.0438" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body72" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body72" type="capsule" fromto="0 0 0 0.5    0.0379 0.066 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site45" pos="0.5    0.0379 0.066 ">
+</site>
+</body>
+<body name="body73" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body73" type="capsule" fromto="0 0 0 0.5    0.0762 0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site46" pos="0.5    0.0762 0.    ">
+</site>
+</body>
+<body name="body74" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body74" type="capsule" fromto="0 0 0 0.5058 0.     0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site47" pos="0.5058 0.     0.    ">
+</site>
+</body>
+<body name="body75" pos="1.0038 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body75" type="capsule" fromto="0 0 0 -0.5038 -0.0382  0.022 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site48" pos="0 0 0">
+</site>
+</body>
+<body name="body76" pos="1.0038 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body76" type="capsule" fromto="0 0 0 -5.038e-01  1.000e-04 -4.400e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body77" pos="1.0038 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body77" type="capsule" fromto="0 0 0 -0.498  -0.0761 -0.044 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body78" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body78" type="capsule" fromto="0 0 0 -0.4924 -0.0373  0.1095" rgba=".5 .1 .1 1">
+</geom>
+<site name="site49" pos="0 0 0">
+</site>
+<site name="site50" pos="-0.4924 -0.0373  0.1095">
+</site>
+</body>
+<body name="body79" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body79" type="capsule" fromto="0 0 0 -0.4981 -0.076   0.0439" rgba=".5 .1 .1 1">
+</geom>
+<site name="site51" pos="-0.4981 -0.076   0.0439">
+</site>
+</body>
+<body name="body80" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body80" type="capsule" fromto="0 0 0 -5.038e-01  1.000e-04  4.390e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site52" pos="-5.038e-01  1.000e-04  4.390e-02">
+</site>
+</body>
+<body name="body81" pos="1.0038 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body81" type="capsule" fromto="0 0 0  0.5038  0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body82" pos="1.0038 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body82" type="capsule" fromto="0 0 0  0.4981 -0.0006 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body83" pos="1.0038 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body83" type="capsule" fromto="0 0 0  0.4924  0.0755 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body84" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body84" type="capsule" fromto="0 0 0 5.00e-01 7.63e-02 1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site53" pos="5.00e-01 7.63e-02 1.00e-04">
+</site>
+</body>
+<body name="body85" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body85" type="capsule" fromto="0 0 0  0.4885  0.1132 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site54" pos=" 0.4885  0.1132 -0.0658">
+</site>
+</body>
+<body name="body86" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body86" type="capsule" fromto="0 0 0  0.5     0.0377 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site55" pos=" 0.5     0.0377 -0.0658">
+</site>
+</body>
+<body name="body87" pos=" 0.9923  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body87" type="capsule" fromto="0 0 0 -0.4923 -0.0752  0.0877" rgba=".5 .1 .1 1">
+</geom>
+<site name="site56" pos="0 0 0">
+</site>
+</body>
+<body name="body88" pos=" 0.9923  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body88" type="capsule" fromto="0 0 0 -0.5038 -0.0383  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body89" pos=" 0.9923  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body89" type="capsule" fromto="0 0 0 -0.4923 -0.1138  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body90" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body90" type="capsule" fromto="0 0 0 -0.5038  0.      0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site57" pos="-0.5038  0.      0.044 ">
+</site>
+</body>
+<body name="body91" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body91" type="capsule" fromto="0 0 0 -0.5038 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site58" pos="-0.5038 -0.0382 -0.0221">
+</site>
+</body>
+<body name="body92" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body92" type="capsule" fromto="0 0 0 -0.5038  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site59" pos="-0.5038  0.0382 -0.0221">
+</site>
+</body>
+<body name="body93" pos=" 0.9923  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body93" type="capsule" fromto="0 0 0 0.5039 0.     0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body94" pos=" 0.9923  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body94" type="capsule" fromto="0 0 0  0.5039 -0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body95" pos=" 0.9923  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body95" type="capsule" fromto="0 0 0  0.5039  0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body96" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body96" type="capsule" fromto="0 0 0  5.058e-01 -1.000e-04  1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site60" pos=" 5.058e-01 -1.000e-04  1.000e-04">
+</site>
+</body>
+<body name="body97" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body97" type="capsule" fromto="0 0 0  0.5     0.0381 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site61" pos=" 0.5     0.0381 -0.0658">
+</site>
+</body>
+<body name="body98" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body98" type="capsule" fromto="0 0 0  0.5    -0.0383 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site62" pos=" 0.5    -0.0383 -0.0658">
+</site>
+</body>
+<body name="body99" pos=" 1.0038e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body99" type="capsule" fromto="0 0 0 -4.98e-01  1.00e-04  8.77e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site63" pos="0 0 0">
+</site>
+</body>
+<body name="body100" pos=" 1.0038e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body100" type="capsule" fromto="0 0 0 -0.5038  0.0383  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body101" pos=" 1.0038e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body101" type="capsule" fromto="0 0 0 -0.5038 -0.0381  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body102" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body102" type="capsule" fromto="0 0 0 -0.4981 -0.0758  0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site64" pos="-0.4981 -0.0758  0.044 ">
+</site>
+</body>
+<body name="body103" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body103" type="capsule" fromto="0 0 0 -0.4923 -0.1136 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site65" pos="-0.4923 -0.1136 -0.0221">
+</site>
+</body>
+<body name="body104" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body104" type="capsule" fromto="0 0 0 -0.5038 -0.0381 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site66" pos="-0.5038 -0.0381 -0.0221">
+</site>
+</body>
+<body name="body105" pos=" 1.0038e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body105" type="capsule" fromto="0 0 0 0.4981 0.0759 0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body106" pos=" 1.0038e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body106" type="capsule" fromto="0 0 0  0.5039  0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body107" pos=" 1.0038e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body107" type="capsule" fromto="0 0 0  0.4924  0.1136 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body108" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body108" type="capsule" fromto="0 0 0 -0.5     0.0379  0.066 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site67" pos="-0.5     0.0379  0.066 ">
+</site>
+</body>
+<body name="body109" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body109" type="capsule" fromto="0 0 0 -0.5058  0.      0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site68" pos="-0.5058  0.      0.    ">
+</site>
+</body>
+<body name="body110" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body110" type="capsule" fromto="0 0 0 -0.5     0.0762  0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site69" pos="-0.5     0.0762  0.    ">
+</site>
+</body>
+<body name="body111" pos="2.9962 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body111" type="capsule" fromto="0 0 0  0.5038 -0.0382  0.022 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site70" pos="0 0 0">
+</site>
+</body>
+<body name="body112" pos="2.9962 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body112" type="capsule" fromto="0 0 0  0.498  -0.0761 -0.044 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body113" pos="2.9962 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body113" type="capsule" fromto="0 0 0  5.038e-01  1.000e-04 -4.400e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body114" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body114" type="capsule" fromto="0 0 0  0.4924 -0.0373  0.1095" rgba=".5 .1 .1 1">
+</geom>
+<site name="site71" pos=" 0.4924 -0.0373  0.1095">
+</site>
+</body>
+<body name="body115" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body115" type="capsule" fromto="0 0 0 5.038e-01 1.000e-04 4.390e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site72" pos="5.038e-01 1.000e-04 4.390e-02">
+</site>
+</body>
+<body name="body116" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body116" type="capsule" fromto="0 0 0  0.4981 -0.076   0.0439" rgba=".5 .1 .1 1">
+</geom>
+<site name="site73" pos=" 0.4981 -0.076   0.0439">
+</site>
+</body>
+<body name="body117" pos="2.9962 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body117" type="capsule" fromto="0 0 0 -0.5038  0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body118" pos="2.9962 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body118" type="capsule" fromto="0 0 0 -0.4924  0.0755 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body119" pos="2.9962 0.0761 0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body119" type="capsule" fromto="0 0 0 -0.4981 -0.0006 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body120" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body120" type="capsule" fromto="0 0 0 -5.058e-01 -1.000e-04  1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site74" pos="-5.058e-01 -1.000e-04  1.000e-04">
+</site>
+</body>
+<body name="body121" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body121" type="capsule" fromto="0 0 0 -0.5    -0.0383 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site75" pos="-0.5    -0.0383 -0.0658">
+</site>
+</body>
+<body name="body122" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body122" type="capsule" fromto="0 0 0 -0.5     0.0381 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site76" pos="-0.5     0.0381 -0.0658">
+</site>
+</body>
+<body name="body123" pos=" 2.9962e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body123" type="capsule" fromto="0 0 0 4.98e-01 1.00e-04 8.77e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site77" pos="0 0 0">
+</site>
+</body>
+<body name="body124" pos=" 2.9962e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body124" type="capsule" fromto="0 0 0  0.5038 -0.0381  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body125" pos=" 2.9962e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body125" type="capsule" fromto="0 0 0 0.5038 0.0383 0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body126" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body126" type="capsule" fromto="0 0 0  0.4981 -0.0758  0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site78" pos=" 0.4981 -0.0758  0.044 ">
+</site>
+</body>
+<body name="body127" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body127" type="capsule" fromto="0 0 0  0.5038 -0.0381 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site79" pos=" 0.5038 -0.0381 -0.0221">
+</site>
+</body>
+<body name="body128" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body128" type="capsule" fromto="0 0 0  0.4923 -0.1136 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site80" pos=" 0.4923 -0.1136 -0.0221">
+</site>
+</body>
+<body name="body129" pos=" 2.9962e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body129" type="capsule" fromto="0 0 0 -0.4981  0.0759  0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body130" pos=" 2.9962e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body130" type="capsule" fromto="0 0 0 -0.4924  0.1136 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body131" pos=" 2.9962e+00 -2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body131" type="capsule" fromto="0 0 0 -0.5039  0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body132" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body132" type="capsule" fromto="0 0 0 -5.00e-01  7.63e-02  1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site81" pos="-5.00e-01  7.63e-02  1.00e-04">
+</site>
+</body>
+<body name="body133" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body133" type="capsule" fromto="0 0 0 -0.5     0.0377 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site82" pos="-0.5     0.0377 -0.0658">
+</site>
+</body>
+<body name="body134" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body134" type="capsule" fromto="0 0 0 -0.4885  0.1132 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site83" pos="-0.4885  0.1132 -0.0658">
+</site>
+</body>
+<body name="body135" pos=" 3.0077  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body135" type="capsule" fromto="0 0 0  0.4923 -0.0752  0.0877" rgba=".5 .1 .1 1">
+</geom>
+<site name="site84" pos="0 0 0">
+</site>
+</body>
+<body name="body136" pos=" 3.0077  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body136" type="capsule" fromto="0 0 0  0.4923 -0.1138  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body137" pos=" 3.0077  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body137" type="capsule" fromto="0 0 0  0.5038 -0.0383  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body138" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body138" type="capsule" fromto="0 0 0 0.5038 0.     0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site85" pos="0.5038 0.     0.044 ">
+</site>
+</body>
+<body name="body139" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body139" type="capsule" fromto="0 0 0  0.5038  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site86" pos=" 0.5038  0.0382 -0.0221">
+</site>
+</body>
+<body name="body140" pos=" 2.      0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body140" type="capsule" fromto="0 0 0  0.5038 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site87" pos=" 0.5038 -0.0382 -0.0221">
+</site>
+</body>
+<body name="body141" pos=" 3.0077  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body141" type="capsule" fromto="0 0 0 -0.5039  0.      0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body142" pos=" 3.0077  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body142" type="capsule" fromto="0 0 0 -0.5039  0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body143" pos=" 3.0077  0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body143" type="capsule" fromto="0 0 0 -0.5039 -0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body144" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body144" type="capsule" fromto="0 0 0  0.5    -0.0379  0.066 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site88" pos=" 0.5    -0.0379  0.066 ">
+</site>
+</body>
+<body name="body145" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body145" type="capsule" fromto="0 0 0 0.5058 0.     0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site89" pos="0.5058 0.     0.    ">
+</site>
+</body>
+<body name="body146" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body146" type="capsule" fromto="0 0 0  0.5    -0.0762  0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site90" pos=" 0.5    -0.0762  0.    ">
+</site>
+</body>
+<body name="body147" pos=" 1.0038 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body147" type="capsule" fromto="0 0 0 -0.5038  0.0382  0.022 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site91" pos="0 0 0">
+</site>
+</body>
+<body name="body148" pos=" 1.0038 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body148" type="capsule" fromto="0 0 0 -0.498   0.0761 -0.044 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body149" pos=" 1.0038 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body149" type="capsule" fromto="0 0 0 -5.038e-01 -1.000e-04 -4.400e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body150" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body150" type="capsule" fromto="0 0 0 -0.4924  0.0373  0.1095" rgba=".5 .1 .1 1">
+</geom>
+<site name="site92" pos="0 0 0">
+</site>
+<site name="site93" pos="-0.4924  0.0373  0.1095">
+</site>
+</body>
+<body name="body151" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body151" type="capsule" fromto="0 0 0 -5.038e-01 -1.000e-04  4.390e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site94" pos="-5.038e-01 -1.000e-04  4.390e-02">
+</site>
+</body>
+<body name="body152" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body152" type="capsule" fromto="0 0 0 -0.4981  0.076   0.0439" rgba=".5 .1 .1 1">
+</geom>
+<site name="site95" pos="-0.4981  0.076   0.0439">
+</site>
+</body>
+<body name="body153" pos=" 1.0038 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body153" type="capsule" fromto="0 0 0  0.5038 -0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body154" pos=" 1.0038 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body154" type="capsule" fromto="0 0 0  0.4924 -0.0755 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body155" pos=" 1.0038 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body155" type="capsule" fromto="0 0 0  0.4981  0.0006 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body156" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body156" type="capsule" fromto="0 0 0 5.058e-01 1.000e-04 1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site96" pos="5.058e-01 1.000e-04 1.000e-04">
+</site>
+</body>
+<body name="body157" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body157" type="capsule" fromto="0 0 0  0.5     0.0383 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site97" pos=" 0.5     0.0383 -0.0658">
+</site>
+</body>
+<body name="body158" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body158" type="capsule" fromto="0 0 0  0.5    -0.0381 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site98" pos=" 0.5    -0.0381 -0.0658">
+</site>
+</body>
+<body name="body159" pos=" 1.0038e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body159" type="capsule" fromto="0 0 0 -4.98e-01 -1.00e-04  8.77e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site99" pos="0 0 0">
+</site>
+</body>
+<body name="body160" pos=" 1.0038e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body160" type="capsule" fromto="0 0 0 -0.5038  0.0381  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body161" pos=" 1.0038e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body161" type="capsule" fromto="0 0 0 -0.5038 -0.0383  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body162" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body162" type="capsule" fromto="0 0 0 -0.4981  0.0758  0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site100" pos="-0.4981  0.0758  0.044 ">
+</site>
+</body>
+<body name="body163" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body163" type="capsule" fromto="0 0 0 -0.5038  0.0381 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site101" pos="-0.5038  0.0381 -0.0221">
+</site>
+</body>
+<body name="body164" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body164" type="capsule" fromto="0 0 0 -0.4923  0.1136 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site102" pos="-0.4923  0.1136 -0.0221">
+</site>
+</body>
+<body name="body165" pos=" 1.0038e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body165" type="capsule" fromto="0 0 0  0.4981 -0.0759  0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body166" pos=" 1.0038e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body166" type="capsule" fromto="0 0 0  0.4924 -0.1136 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body167" pos=" 1.0038e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body167" type="capsule" fromto="0 0 0  0.5039 -0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body168" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body168" type="capsule" fromto="0 0 0  5.00e-01 -7.63e-02  1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site103" pos=" 5.00e-01 -7.63e-02  1.00e-04">
+</site>
+</body>
+<body name="body169" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body169" type="capsule" fromto="0 0 0  0.5    -0.0377 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site104" pos=" 0.5    -0.0377 -0.0658">
+</site>
+</body>
+<body name="body170" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body170" type="capsule" fromto="0 0 0  0.4885 -0.1132 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site105" pos=" 0.4885 -0.1132 -0.0658">
+</site>
+</body>
+<body name="body171" pos=" 0.9923 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body171" type="capsule" fromto="0 0 0 -0.4923  0.0752  0.0877" rgba=".5 .1 .1 1">
+</geom>
+<site name="site106" pos="0 0 0">
+</site>
+</body>
+<body name="body172" pos=" 0.9923 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body172" type="capsule" fromto="0 0 0 -0.4923  0.1138  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body173" pos=" 0.9923 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body173" type="capsule" fromto="0 0 0 -0.5038  0.0383  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body174" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body174" type="capsule" fromto="0 0 0 -0.5038  0.      0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site107" pos="-0.5038  0.      0.044 ">
+</site>
+</body>
+<body name="body175" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body175" type="capsule" fromto="0 0 0 -0.5038 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site108" pos="-0.5038 -0.0382 -0.0221">
+</site>
+</body>
+<body name="body176" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body176" type="capsule" fromto="0 0 0 -0.5038  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site109" pos="-0.5038  0.0382 -0.0221">
+</site>
+</body>
+<body name="body177" pos=" 0.9923 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body177" type="capsule" fromto="0 0 0 0.5039 0.     0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body178" pos=" 0.9923 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body178" type="capsule" fromto="0 0 0  0.5039 -0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body179" pos=" 0.9923 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body179" type="capsule" fromto="0 0 0  0.5039  0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body180" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body180" type="capsule" fromto="0 0 0 -0.5    -0.0379  0.066 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site110" pos="-0.5    -0.0379  0.066 ">
+</site>
+</body>
+<body name="body181" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body181" type="capsule" fromto="0 0 0 -0.5    -0.0762  0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site111" pos="-0.5    -0.0762  0.    ">
+</site>
+</body>
+<body name="body182" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body182" type="capsule" fromto="0 0 0 -0.5058  0.      0.    " rgba=".5 .1 .1 1">
+</geom>
+<site name="site112" pos="-0.5058  0.      0.    ">
+</site>
+</body>
+<body name="body183" pos=" 2.9962 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body183" type="capsule" fromto="0 0 0 0.5038 0.0382 0.022 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site113" pos="0 0 0">
+</site>
+</body>
+<body name="body184" pos=" 2.9962 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body184" type="capsule" fromto="0 0 0  5.038e-01 -1.000e-04 -4.400e-02" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body185" pos=" 2.9962 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body185" type="capsule" fromto="0 0 0  0.498   0.0761 -0.044 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body186" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body186" type="capsule" fromto="0 0 0 0.4924 0.0373 0.1095" rgba=".5 .1 .1 1">
+</geom>
+<site name="site114" pos="0.4924 0.0373 0.1095">
+</site>
+</body>
+<body name="body187" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body187" type="capsule" fromto="0 0 0 0.4981 0.076  0.0439" rgba=".5 .1 .1 1">
+</geom>
+<site name="site115" pos="0.4981 0.076  0.0439">
+</site>
+</body>
+<body name="body188" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body188" type="capsule" fromto="0 0 0  5.038e-01 -1.000e-04  4.390e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site116" pos=" 5.038e-01 -1.000e-04  4.390e-02">
+</site>
+</body>
+<body name="body189" pos=" 2.9962 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body189" type="capsule" fromto="0 0 0 -0.5038 -0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body190" pos=" 2.9962 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body190" type="capsule" fromto="0 0 0 -0.4981  0.0006 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body191" pos=" 2.9962 -0.0761  0.044 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body191" type="capsule" fromto="0 0 0 -0.4924 -0.0755 -0.0876" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body192" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body192" type="capsule" fromto="0 0 0 -5.00e-01 -7.63e-02  1.00e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site117" pos="-5.00e-01 -7.63e-02  1.00e-04">
+</site>
+</body>
+<body name="body193" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body193" type="capsule" fromto="0 0 0 -0.4885 -0.1132 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site118" pos="-0.4885 -0.1132 -0.0658">
+</site>
+</body>
+<body name="body194" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body194" type="capsule" fromto="0 0 0 -0.5    -0.0377 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site119" pos="-0.5    -0.0377 -0.0658">
+</site>
+</body>
+<body name="body195" pos=" 3.0077 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body195" type="capsule" fromto="0 0 0 0.4923 0.0752 0.0877" rgba=".5 .1 .1 1">
+</geom>
+<site name="site120" pos="0 0 0">
+</site>
+</body>
+<body name="body196" pos=" 3.0077 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body196" type="capsule" fromto="0 0 0 0.5038 0.0383 0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body197" pos=" 3.0077 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body197" type="capsule" fromto="0 0 0 0.4923 0.1138 0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body198" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body198" type="capsule" fromto="0 0 0 0.5038 0.     0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site121" pos="0.5038 0.     0.044 ">
+</site>
+</body>
+<body name="body199" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body199" type="capsule" fromto="0 0 0  0.5038  0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site122" pos=" 0.5038  0.0382 -0.0221">
+</site>
+</body>
+<body name="body200" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body200" type="capsule" fromto="0 0 0  0.5038 -0.0382 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site123" pos=" 0.5038 -0.0382 -0.0221">
+</site>
+</body>
+<body name="body201" pos=" 3.0077 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body201" type="capsule" fromto="0 0 0 -0.5039  0.      0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body202" pos=" 3.0077 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body202" type="capsule" fromto="0 0 0 -0.5039  0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body203" pos=" 3.0077 -0.1515 -0.0876">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body203" type="capsule" fromto="0 0 0 -0.5039 -0.0382 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body204" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body204" type="capsule" fromto="0 0 0 -5.058e-01  1.000e-04  1.000e-04" rgba=".5 .1 .1 1">
+</geom>
+<site name="site124" pos="-5.058e-01  1.000e-04  1.000e-04">
+</site>
+</body>
+<body name="body205" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body205" type="capsule" fromto="0 0 0 -0.5    -0.0381 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site125" pos="-0.5    -0.0381 -0.0658">
+</site>
+</body>
+<body name="body206" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body206" type="capsule" fromto="0 0 0 -0.5     0.0383 -0.0658" rgba=".5 .1 .1 1">
+</geom>
+<site name="site126" pos="-0.5     0.0383 -0.0658">
+</site>
+</body>
+<body name="body207" pos=" 2.9962e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body207" type="capsule" fromto="0 0 0  4.98e-01 -1.00e-04  8.77e-02" rgba=".5 .1 .1 1">
+</geom>
+<site name="site127" pos="0 0 0">
+</site>
+</body>
+<body name="body208" pos=" 2.9962e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body208" type="capsule" fromto="0 0 0  0.5038 -0.0383  0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body209" pos=" 2.9962e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body209" type="capsule" fromto="0 0 0 0.5038 0.0381 0.0218" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body210" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body210" type="capsule" fromto="0 0 0 0.4981 0.0758 0.044 " rgba=".5 .1 .1 1">
+</geom>
+<site name="site128" pos="0.4981 0.0758 0.044 ">
+</site>
+</body>
+<body name="body211" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body211" type="capsule" fromto="0 0 0  0.4923  0.1136 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site129" pos=" 0.4923  0.1136 -0.0221">
+</site>
+</body>
+<body name="body212" pos=" 2.     -0.1515 -0.0875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body212" type="capsule" fromto="0 0 0  0.5038  0.0381 -0.0221" rgba=".5 .1 .1 1">
+</geom>
+<site name="site130" pos=" 0.5038  0.0381 -0.0221">
+</site>
+</body>
+<body name="body213" pos=" 2.9962e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body213" type="capsule" fromto="0 0 0 -0.4981 -0.0759  0.0441" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body214" pos=" 2.9962e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body214" type="capsule" fromto="0 0 0 -0.5039 -0.0381 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body215" pos=" 2.9962e+00  2.0000e-04 -8.7600e-02">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body215" type="capsule" fromto="0 0 0 -0.4924 -0.1136 -0.022 " rgba=".5 .1 .1 1">
+</geom>
+</body>
+</worldbody>
+
+</mujoco>

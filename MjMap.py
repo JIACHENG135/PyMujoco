@@ -5,7 +5,7 @@ class MjMap(object):
     # ("Visual",1),
     dbar["Default"] = [("Joint",1),("Muscle",3),("Site",1)]
     dbar["Visual"] = [("Rgba",1)]
-    dbar["Asset"] = [("Texture",2),("Material")]
+    dbar["Asset"] = [("Texture",2),("Material",1)]
     dbar["Equality"] = [("Connect",2)]
     dbar["Tendon"] = [("Spatial",3)]
     # dbar["Spatial"] = ["customize",("customize",["site","s1"]),("Site",2)]

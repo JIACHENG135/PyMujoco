@@ -1,0 +1,139 @@
+<mujoco model="dbar">
+
+    <option timestep="0.01" iterations="50" solver="Newton" tolerance="1e-10" gravity = "0 0 0" collision="predefined" viscosity=".5"/>
+
+    <size njmax="5000" nconmax="1000" nstack="20000"/>
+
+    <visual>
+        <rgba haze=".3 .3 .3 1"/>
+    </visual>
+
+    <default>
+        <position ctrllimited="false" ctrlrange="-1 1" gear="1.0"/>
+        <tendon damping="2" rgba = ".8 .8 .8 .5"/>
+        <geom size="0.01"/>
+        <site size="0.01"/>
+    </default>
+
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1="0.6 0.6 0.6" rgb2="0 0 0" width="512" height="512"/> 
+
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".25 .25 .25" rgb2=".3 .3 .3" width="512" height="512" mark="cross" markrgb=".8 .8 .8"/>  
+
+        <material name="matplane" reflectance="0.3" texture="texplane" texrepeat="1 1" texuniform="true"/>
+    </asset>
+<worldbody>
+<body name="floor" pos="0 0 10">
+<geom name="floor" pos="0 0 10" size="0 0 1" type="plane" material="matplane">
+</geom>
+<light directional="true" diffuse=".8 .8 .8" specular=".2 .2 .2" pos="0 0 5" dir="0 0 -1">
+</light>
+<site name="s0" pos="0 0 -10" size="0.1">
+</site>
+</body>
+<body name="body0" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body0" type="capsule" fromto="0 0 0 2.     0.     0.3527" rgba=".5 .1 .1 1">
+</geom>
+<site name="site0" pos="0 0 0">
+</site>
+<site name="site1" pos="2.     0.     0.3527">
+</site>
+</body>
+<body name="body1" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body1" type="capsule" fromto="0 0 0  2.      0.3054 -0.1763" rgba=".5 .1 .1 1">
+</geom>
+<site name="site2" pos=" 2.      0.3054 -0.1763">
+</site>
+</body>
+<body name="body2" pos="0. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body2" type="capsule" fromto="0 0 0  2.     -0.3054 -0.1763" rgba=".5 .1 .1 1">
+</geom>
+<site name="site3" pos=" 2.     -0.3054 -0.1763">
+</site>
+</body>
+<body name="body3" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body3" type="capsule" fromto="0 0 0 -2.      0.      0.3527" rgba=".5 .1 .1 1">
+</geom>
+<site name="site4" pos="0 0 0">
+</site>
+</body>
+<body name="body4" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body4" type="capsule" fromto="0 0 0 -2.      0.3054 -0.1763" rgba=".5 .1 .1 1">
+</geom>
+</body>
+<body name="body5" pos="4. 0. 0.">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body5" type="capsule" fromto="0 0 0 -2.     -0.3054 -0.1763" rgba=".5 .1 .1 1">
+</geom>
+</body>
+</worldbody>
+
+
+<tendon>
+<spatial name="S1" width="0.02">
+<site site="site1">
+</site>
+<site site="site3">
+</site>
+</spatial>
+<spatial name="S2" width="0.02">
+<site site="site3">
+</site>
+<site site="site2">
+</site>
+</spatial>
+<spatial name="S3" width="0.02">
+<site site="site2">
+</site>
+<site site="site1">
+</site>
+</spatial>
+<spatial name="S4" width="0.02">
+<site site="site0">
+</site>
+<site site="site4">
+</site>
+</spatial>
+</tendon>
+
+<equality>
+<connect active="true" name="body12body2" body1="body1" body2="body2" anchor=" 2.      0.3054 -0.1763">
+</connect>
+<connect active="true" name="body12body0" body1="body1" body2="body0" anchor=" 2.      0.3054 -0.1763">
+</connect>
+<connect active="true" name="body32body0" body1="body3" body2="body0" anchor="-2.      0.      0.3527">
+</connect>
+<connect active="true" name="body12body4" body1="body1" body2="body4" anchor=" 2.      0.3054 -0.1763">
+</connect>
+<connect active="true" name="body22body5" body1="body2" body2="body5" anchor=" 2.     -0.3054 -0.1763">
+</connect>
+<connect active="true" name="body42body5" body1="body4" body2="body5" anchor="-2.      0.3054 -0.1763">
+</connect>
+<connect active="true" name="body42body3" body1="body4" body2="body3" anchor="-2.      0.3054 -0.1763">
+</connect>
+</equality>
+
+
+<actuator>
+<position tendon="S1" kp="1">
+</position>
+<position tendon="S2" kp="1">
+</position>
+<position tendon="S3" kp="1">
+</position>
+<position tendon="S4" kp="1">
+</position>
+</actuator>
+
+</mujoco>

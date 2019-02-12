@@ -94,6 +94,7 @@ class Dfs(object):
 					tags.append(genetag(e[0],selfname))
 					num.append(e[1])
 		# print(self.mem)
+		print(path,'ppppppppppppath')
 		while len(tags)>=2:
 			parent = tags[-2]
 			kid = tags[-1]
@@ -152,9 +153,7 @@ class Change(object):
 				if '_' not in i and i not in ['add','change','fstr','addAtt']:
 					strogeom += i+'=' + 'self' + '.'+i + ','
 			strogeom += ')'
-			# print(strogeom)
 			tmp = eval(strogeom)
-			# eval
 			setattr(self,selfname,tmp)
 
 
@@ -263,7 +262,7 @@ class Texture(Change):
 		Print.__init__(self)
 
 class Material(Change):
-	def __init(self,name="matplane",reflectance="0.3",texture="texplane",texrepeat="1 1",texuniform="true"):
+	def __init__(self,name="matplane",reflectance="0.3",texture="texplane",texrepeat="1 1",texuniform="true"):
 		self.name = name
 		self.reflectance = reflectance
 		self.texture = texture

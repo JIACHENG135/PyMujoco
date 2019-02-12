@@ -29,14 +29,25 @@ from MjMap import *
 # te = Tendon()
 # eq = Equality()
 # gm = Geom()
-
-
+AS = Asset()
+print(AS.asset.render())
+# op = Option()
+# print(op.option.render())
 # ac= Actuator()
+# print(de.default.render())
 
 # sp = Spatial()
 # print(de.default.render())
 # print(sp.spatial.render())
 # print(te.tendon.render())
+# a=  material()
+# print(a.render())
+mt = Material()
+# print(mt.__dir__)
+# for i in dir(mt):
+    # print(i)
+print(mt.material.render())
+
 
 
 
@@ -53,7 +64,7 @@ from MjMap import *
 # osite.site<<omuscle.muscle
 # print(osite.site.muscle.render())
 
-mj = Mujoco()
+# mj = Mujoco()
 
 
 # Write("Dbar_wirte_test",osite.site)
