@@ -1,20 +1,11 @@
 <mujoco model="dbar">
-
-    <option timestep="0.01" iterations="50" solver="Newton" tolerance="1e-10" gravity = "0 0 0" collision="predefined" viscosity=".5"/>
-
-    <size njmax="5000" nconmax="1000" nstack="20000"/>
-
-    <visual>
-        <rgba haze=".3 .3 .3 1"/>
-    </visual>
+    <option timestep="0.01" integrator="RK4" gravity = "0 0 0" collision="predefined" density="1000"/>
 
     <default>
-        <position ctrllimited="false" ctrlrange="-1 1" gear="1.0"/>
-        <tendon damping="2" rgba = ".8 .8 .8 .5"/>
-        <geom size="0.01"/>
-        <site size="0.01"/>
+        <geom size="0.03"/>
+        <site size="0.05"/>
     </default>
-
+    
     <asset>
         <texture type="skybox" builtin="gradient" rgb1="0.6 0.6 0.6" rgb2="0 0 0" width="512" height="512"/> 
 
@@ -23,116 +14,1056 @@
         <material name="matplane" reflectance="0.3" texture="texplane" texrepeat="1 1" texuniform="true"/>
     </asset>
 <worldbody>
-<body name="floor" pos="0 0 10">
-<geom name="floor" pos="0 0 10" size="0 0 1" type="plane" material="matplane">
-</geom>
 <light directional="true" diffuse=".8 .8 .8" specular=".2 .2 .2" pos="0 0 5" dir="0 0 -1">
 </light>
-<site name="s0" pos="0 0 -10" size="0.1">
+<body name="floor" pos="0 0 0">
+<geom name="floor" pos="0 0 -10" size="0 0 1" type="plane" material="matplane">
+</geom>
+<site name="s0" pos="0 0 0" size="0.1">
 </site>
 </body>
-<body name="body0" pos="0. 0. 0.">
+<body name="body0" pos="0.857  1.4843 0.    ">
 <joint type="free" pos="0 0 0">
 </joint>
-<geom name="body0" type="capsule" fromto="0 0 0 2.     0.     0.3527" rgba=".5 .1 .1 1">
+<geom name="body0" type="capsule" fromto="0 0 0 -6.1233 -1.4843  2.875 " rgba="1 0 0 .8">
 </geom>
 <site name="site0" pos="0 0 0">
 </site>
-<site name="site1" pos="2.     0.     0.3527">
+<site name="site1" pos="-6.1233 -1.4843  2.875 ">
 </site>
 </body>
-<body name="body1" pos="0. 0. 0.">
+<body name="body1" pos="-2.0858  3.6127  1.4375">
 <joint type="free" pos="0 0 0">
 </joint>
-<geom name="body1" type="capsule" fromto="0 0 0  2.      0.3054 -0.1763" rgba=".5 .1 .1 1">
+<geom name="body1" type="capsule" fromto="0 0 0  7.9111 -3.6127  2.875 " rgba="1 0 0 .8">
 </geom>
-<site name="site2" pos=" 2.      0.3054 -0.1763">
+<site name="site2" pos="0 0 0">
+</site>
+<site name="site3" pos=" 7.9111 -3.6127  2.875 ">
 </site>
 </body>
-<body name="body2" pos="0. 0. 0.">
+<body name="body2" pos="0.857  1.4843 0.    ">
 <joint type="free" pos="0 0 0">
 </joint>
-<geom name="body2" type="capsule" fromto="0 0 0  2.     -0.3054 -0.1763" rgba=".5 .1 .1 1">
+<geom name="body2" type="capsule" fromto="0 0 0  3.3146 -1.4843  1.4375" rgba="1 0 0 .8">
 </geom>
-<site name="site3" pos=" 2.     -0.3054 -0.1763">
+<site name="site4" pos=" 3.3146 -1.4843  1.4375">
 </site>
 </body>
-<body name="body3" pos="4. 0. 0.">
+<body name="body3" pos="-1.7139  0.      0.    ">
 <joint type="free" pos="0 0 0">
 </joint>
-<geom name="body3" type="capsule" fromto="0 0 0 -2.      0.      0.3527" rgba=".5 .1 .1 1">
+<geom name="body3" type="capsule" fromto="0 0 0  4.3471 -4.5608  2.875 " rgba="1 0 0 .8">
 </geom>
-<site name="site4" pos="0 0 0">
+<site name="site5" pos="0 0 0">
+</site>
+<site name="site6" pos=" 4.3471 -4.5608  2.875 ">
 </site>
 </body>
-<body name="body4" pos="4. 0. 0.">
+<body name="body4" pos="-2.0858 -3.6127  1.4375">
 <joint type="free" pos="0 0 0">
 </joint>
-<geom name="body4" type="capsule" fromto="0 0 0 -2.      0.3054 -0.1763" rgba=".5 .1 .1 1">
+<geom name="body4" type="capsule" fromto="0 0 0 -0.8268  8.6575  2.875 " rgba="1 0 0 .8">
 </geom>
+<site name="site7" pos="0 0 0">
+</site>
+<site name="site8" pos="-0.8268  8.6575  2.875 ">
+</site>
 </body>
-<body name="body5" pos="4. 0. 0.">
+<body name="body5" pos="-1.7139  0.      0.    ">
 <joint type="free" pos="0 0 0">
 </joint>
-<geom name="body5" type="capsule" fromto="0 0 0 -2.     -0.3054 -0.1763" rgba=".5 .1 .1 1">
+<geom name="body5" type="capsule" fromto="0 0 0 -0.3719  3.6127  1.4375" rgba="1 0 0 .8">
 </geom>
+<site name="site9" pos="-0.3719  3.6127  1.4375">
+</site>
+</body>
+<body name="body6" pos=" 0.857  -1.4843  0.    ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body6" type="capsule" fromto="0 0 0 1.7762 6.0451 2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site10" pos="0 0 0">
+</site>
+<site name="site11" pos="1.7762 6.0451 2.875 ">
+</site>
+</body>
+<body name="body7" pos=" 4.1716 -0.      1.4375">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body7" type="capsule" fromto="0 0 0 -7.0842 -5.0448  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site12" pos="0 0 0">
+</site>
+<site name="site13" pos="-7.0842 -5.0448  2.875 ">
+</site>
+</body>
+<body name="body8" pos=" 0.857  -1.4843  0.    ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body8" type="capsule" fromto="0 0 0 -2.9428 -2.1284  1.4375" rgba="1 0 0 .8">
+</geom>
+<site name="site14" pos="-2.9428 -2.1284  1.4375">
+</site>
+</body>
+<body name="body9" pos="2.6332 4.5608 2.875 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body9" type="capsule" fromto="0 0 0 -8.6332 -4.5608  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site15" pos="0 0 0">
+</site>
+<site name="site16" pos="-8.6332 -4.5608  2.875 ">
+</site>
+</body>
+<body name="body10" pos="-2.9126  5.0448  4.3125">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body10" type="capsule" fromto="0 0 0  8.7379 -5.0448  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site17" pos="0 0 0">
+</site>
+<site name="site18" pos=" 8.7379 -5.0448  2.875 ">
+</site>
+</body>
+<body name="body11" pos="-5.2663  0.      2.875 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body11" type="capsule" fromto="0 0 0  8.2663 -5.1962  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site19" pos="0 0 0">
+</site>
+<site name="site20" pos=" 8.2663 -5.1962  2.875 ">
+</site>
+</body>
+<body name="body12" pos="-2.9126 -5.0448  4.3125">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body12" type="capsule" fromto="0 0 0  0.     10.0896  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site21" pos="0 0 0">
+</site>
+<site name="site22" pos=" 0.     10.0896  2.875 ">
+</site>
+</body>
+<body name="body13" pos=" 2.6332 -4.5608  2.875 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body13" type="capsule" fromto="0 0 0 0.3668 9.757  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site23" pos="0 0 0">
+</site>
+<site name="site24" pos="0.3668 9.757  2.875 ">
+</site>
+</body>
+<body name="body14" pos=" 5.8253 -0.      4.3125">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body14" type="capsule" fromto="0 0 0 -8.7379 -5.0448  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site25" pos="0 0 0">
+</site>
+<site name="site26" pos="-8.7379 -5.0448  2.875 ">
+</site>
+</body>
+<body name="body15" pos="3.     5.1962 5.75  ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body15" type="capsule" fromto="0 0 0 -8.2663 -5.1962  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site27" pos="0 0 0">
+</site>
+<site name="site28" pos="-8.2663 -5.1962  2.875 ">
+</site>
+</body>
+<body name="body16" pos="-2.9126  5.0448  7.1875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body16" type="capsule" fromto="0 0 0  7.0842 -5.0448  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site29" pos="0 0 0">
+</site>
+<site name="site30" pos=" 7.0842 -5.0448  2.875 ">
+</site>
+</body>
+<body name="body17" pos="-6.    0.    5.75">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body17" type="capsule" fromto="0 0 0  8.6332 -4.5608  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site31" pos="0 0 0">
+</site>
+<site name="site32" pos=" 8.6332 -4.5608  2.875 ">
+</site>
+</body>
+<body name="body18" pos="-2.9126 -5.0448  7.1875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body18" type="capsule" fromto="0 0 0 0.8268 8.6575 2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site33" pos="0 0 0">
+</site>
+<site name="site34" pos="0.8268 8.6575 2.875 ">
+</site>
+</body>
+<body name="body19" pos=" 3.     -5.1962  5.75  ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body19" type="capsule" fromto="0 0 0 -0.3668  9.757   2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site35" pos="0 0 0">
+</site>
+<site name="site36" pos="-0.3668  9.757   2.875 ">
+</site>
+</body>
+<body name="body20" pos=" 5.8253 -0.      7.1875">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body20" type="capsule" fromto="0 0 0 -7.9111 -3.6127  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site37" pos="0 0 0">
+</site>
+<site name="site38" pos="-7.9111 -3.6127  2.875 ">
+</site>
+</body>
+<body name="body21" pos="2.6332 4.5608 8.625 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body21" type="capsule" fromto="0 0 0 -4.3471 -4.5608  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site39" pos="0 0 0">
+</site>
+<site name="site40" pos="-4.3471 -4.5608  2.875 ">
+</site>
+</body>
+<body name="body22" pos="-2.0858  3.6127 10.0625">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body22" type="capsule" fromto="0 0 0  2.9428 -2.1284  1.4375" rgba="1 0 0 .8">
+</geom>
+<site name="site41" pos="0 0 0">
+</site>
+<site name="site42" pos=" 2.9428 -2.1284  1.4375">
+</site>
+</body>
+<body name="body23" pos="-5.2663  0.      8.625 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body23" type="capsule" fromto="0 0 0  6.1233 -1.4843  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site43" pos="0 0 0">
+</site>
+<site name="site44" pos=" 6.1233 -1.4843  2.875 ">
+</site>
+</body>
+<body name="body24" pos="-2.0858 -3.6127 10.0625">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body24" type="capsule" fromto="0 0 0 0.3719 3.6127 1.4375" rgba="1 0 0 .8">
+</geom>
+<site name="site45" pos="0 0 0">
+</site>
+</body>
+<body name="body25" pos=" 2.6332 -4.5608  8.625 ">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body25" type="capsule" fromto="0 0 0 -1.7762  6.0451  2.875 " rgba="1 0 0 .8">
+</geom>
+<site name="site46" pos="0 0 0">
+</site>
+</body>
+<body name="body26" pos=" 4.1716 -0.     10.0625">
+<joint type="free" pos="0 0 0">
+</joint>
+<geom name="body26" type="capsule" fromto="0 0 0 -3.3146 -1.4843  1.4375" rgba="1 0 0 .8">
+</geom>
+<site name="site47" pos="0 0 0">
+</site>
 </body>
 </worldbody>
 
 
 <tendon>
 <spatial name="S1" width="0.02">
-<site site="site1">
+<site site="site0">
 </site>
-<site site="site3">
+<site site="site9">
 </site>
 </spatial>
 <spatial name="S2" width="0.02">
-<site site="site3">
+<site site="site9">
 </site>
-<site site="site2">
+<site site="site15">
 </site>
 </spatial>
 <spatial name="S3" width="0.02">
-<site site="site2">
+<site site="site15">
 </site>
-<site site="site1">
+<site site="site12">
 </site>
 </spatial>
 <spatial name="S4" width="0.02">
+<site site="site12">
+</site>
+<site site="site9">
+</site>
+</spatial>
+<spatial name="S5" width="0.02">
 <site site="site0">
 </site>
-<site site="site4">
+<site site="site15">
+</site>
+</spatial>
+<spatial name="S6" width="0.02">
+<site site="site23">
+</site>
+<site site="site15">
+</site>
+</spatial>
+<spatial name="S7" width="0.02">
+<site site="site12">
+</site>
+<site site="site25">
+</site>
+</spatial>
+<spatial name="S8" width="0.02">
+<site site="site10">
+</site>
+<site site="site0">
+</site>
+</spatial>
+<spatial name="S9" width="0.02">
+<site site="site5">
+</site>
+<site site="site14">
+</site>
+</spatial>
+<spatial name="S10" width="0.02">
+<site site="site14">
+</site>
+<site site="site19">
+</site>
+</spatial>
+<spatial name="S11" width="0.02">
+<site site="site19">
+</site>
+<site site="site9">
+</site>
+</spatial>
+<spatial name="S12" width="0.02">
+<site site="site9">
+</site>
+<site site="site14">
+</site>
+</spatial>
+<spatial name="S13" width="0.02">
+<site site="site5">
+</site>
+<site site="site19">
+</site>
+</spatial>
+<spatial name="S14" width="0.02">
+<site site="site15">
+</site>
+<site site="site19">
+</site>
+</spatial>
+<spatial name="S15" width="0.02">
+<site site="site9">
+</site>
+<site site="site17">
+</site>
+</spatial>
+<spatial name="S16" width="0.02">
+<site site="site0">
+</site>
+<site site="site5">
+</site>
+</spatial>
+<spatial name="S17" width="0.02">
+<site site="site10">
+</site>
+<site site="site12">
+</site>
+</spatial>
+<spatial name="S18" width="0.02">
+<site site="site12">
+</site>
+<site site="site23">
+</site>
+</spatial>
+<spatial name="S19" width="0.02">
+<site site="site23">
+</site>
+<site site="site14">
+</site>
+</spatial>
+<spatial name="S20" width="0.02">
+<site site="site14">
+</site>
+<site site="site12">
+</site>
+</spatial>
+<spatial name="S21" width="0.02">
+<site site="site10">
+</site>
+<site site="site23">
+</site>
+</spatial>
+<spatial name="S22" width="0.02">
+<site site="site19">
+</site>
+<site site="site23">
+</site>
+</spatial>
+<spatial name="S23" width="0.02">
+<site site="site14">
+</site>
+<site site="site21">
+</site>
+</spatial>
+<spatial name="S24" width="0.02">
+<site site="site5">
+</site>
+<site site="site10">
+</site>
+</spatial>
+<spatial name="S25" width="0.02">
+<site site="site15">
+</site>
+<site site="site17">
+</site>
+</spatial>
+<spatial name="S26" width="0.02">
+<site site="site17">
+</site>
+<site site="site27">
+</site>
+</spatial>
+<spatial name="S27" width="0.02">
+<site site="site27">
+</site>
+<site site="site25">
+</site>
+</spatial>
+<spatial name="S28" width="0.02">
+<site site="site25">
+</site>
+<site site="site15">
+</site>
+</spatial>
+<spatial name="S29" width="0.02">
+<site site="site25">
+</site>
+<site site="site17">
+</site>
+</spatial>
+<spatial name="S30" width="0.02">
+<site site="site15">
+</site>
+<site site="site27">
+</site>
+</spatial>
+<spatial name="S31" width="0.02">
+<site site="site35">
+</site>
+<site site="site27">
+</site>
+</spatial>
+<spatial name="S32" width="0.02">
+<site site="site25">
+</site>
+<site site="site37">
+</site>
+</spatial>
+<spatial name="S33" width="0.02">
+<site site="site19">
+</site>
+<site site="site21">
+</site>
+</spatial>
+<spatial name="S34" width="0.02">
+<site site="site21">
+</site>
+<site site="site31">
+</site>
+</spatial>
+<spatial name="S35" width="0.02">
+<site site="site31">
+</site>
+<site site="site17">
+</site>
+</spatial>
+<spatial name="S36" width="0.02">
+<site site="site17">
+</site>
+<site site="site19">
+</site>
+</spatial>
+<spatial name="S37" width="0.02">
+<site site="site17">
+</site>
+<site site="site21">
+</site>
+</spatial>
+<spatial name="S38" width="0.02">
+<site site="site19">
+</site>
+<site site="site31">
+</site>
+</spatial>
+<spatial name="S39" width="0.02">
+<site site="site27">
+</site>
+<site site="site31">
+</site>
+</spatial>
+<spatial name="S40" width="0.02">
+<site site="site17">
+</site>
+<site site="site29">
+</site>
+</spatial>
+<spatial name="S41" width="0.02">
+<site site="site23">
+</site>
+<site site="site25">
+</site>
+</spatial>
+<spatial name="S42" width="0.02">
+<site site="site25">
+</site>
+<site site="site35">
+</site>
+</spatial>
+<spatial name="S43" width="0.02">
+<site site="site35">
+</site>
+<site site="site21">
+</site>
+</spatial>
+<spatial name="S44" width="0.02">
+<site site="site21">
+</site>
+<site site="site23">
+</site>
+</spatial>
+<spatial name="S45" width="0.02">
+<site site="site21">
+</site>
+<site site="site25">
+</site>
+</spatial>
+<spatial name="S46" width="0.02">
+<site site="site23">
+</site>
+<site site="site35">
+</site>
+</spatial>
+<spatial name="S47" width="0.02">
+<site site="site31">
+</site>
+<site site="site35">
+</site>
+</spatial>
+<spatial name="S48" width="0.02">
+<site site="site21">
+</site>
+<site site="site33">
+</site>
+</spatial>
+<spatial name="S49" width="0.02">
+<site site="site27">
+</site>
+<site site="site29">
+</site>
+</spatial>
+<spatial name="S50" width="0.02">
+<site site="site29">
+</site>
+<site site="site39">
+</site>
+</spatial>
+<spatial name="S51" width="0.02">
+<site site="site39">
+</site>
+<site site="site37">
+</site>
+</spatial>
+<spatial name="S52" width="0.02">
+<site site="site37">
+</site>
+<site site="site27">
+</site>
+</spatial>
+<spatial name="S53" width="0.02">
+<site site="site37">
+</site>
+<site site="site29">
+</site>
+</spatial>
+<spatial name="S54" width="0.02">
+<site site="site27">
+</site>
+<site site="site39">
+</site>
+</spatial>
+<spatial name="S55" width="0.02">
+<site site="site46">
+</site>
+<site site="site39">
+</site>
+</spatial>
+<spatial name="S56" width="0.02">
+<site site="site37">
+</site>
+<site site="site47">
+</site>
+</spatial>
+<spatial name="S57" width="0.02">
+<site site="site31">
+</site>
+<site site="site33">
+</site>
+</spatial>
+<spatial name="S58" width="0.02">
+<site site="site33">
+</site>
+<site site="site43">
+</site>
+</spatial>
+<spatial name="S59" width="0.02">
+<site site="site43">
+</site>
+<site site="site29">
+</site>
+</spatial>
+<spatial name="S60" width="0.02">
+<site site="site29">
+</site>
+<site site="site31">
+</site>
+</spatial>
+<spatial name="S61" width="0.02">
+<site site="site29">
+</site>
+<site site="site33">
+</site>
+</spatial>
+<spatial name="S62" width="0.02">
+<site site="site31">
+</site>
+<site site="site43">
+</site>
+</spatial>
+<spatial name="S63" width="0.02">
+<site site="site39">
+</site>
+<site site="site43">
+</site>
+</spatial>
+<spatial name="S64" width="0.02">
+<site site="site29">
+</site>
+<site site="site41">
+</site>
+</spatial>
+<spatial name="S65" width="0.02">
+<site site="site35">
+</site>
+<site site="site37">
+</site>
+</spatial>
+<spatial name="S66" width="0.02">
+<site site="site37">
+</site>
+<site site="site46">
+</site>
+</spatial>
+<spatial name="S67" width="0.02">
+<site site="site46">
+</site>
+<site site="site33">
+</site>
+</spatial>
+<spatial name="S68" width="0.02">
+<site site="site33">
+</site>
+<site site="site35">
+</site>
+</spatial>
+<spatial name="S69" width="0.02">
+<site site="site33">
+</site>
+<site site="site37">
+</site>
+</spatial>
+<spatial name="S70" width="0.02">
+<site site="site35">
+</site>
+<site site="site46">
+</site>
+</spatial>
+<spatial name="S71" width="0.02">
+<site site="site43">
+</site>
+<site site="site46">
+</site>
+</spatial>
+<spatial name="S72" width="0.02">
+<site site="site33">
+</site>
+<site site="site45">
+</site>
+</spatial>
+<spatial name="S73" width="0.02">
+<site site="site39">
+</site>
+<site site="site41">
+</site>
+</spatial>
+<spatial name="S74" width="0.02">
+<site site="site42">
+</site>
+<site site="site47">
+</site>
+</spatial>
+<spatial name="S75" width="0.02">
+<site site="site47">
+</site>
+<site site="site39">
+</site>
+</spatial>
+<spatial name="S76" width="0.02">
+<site site="site47">
+</site>
+<site site="site41">
+</site>
+</spatial>
+<spatial name="S77" width="0.02">
+<site site="site39">
+</site>
+<site site="site42">
+</site>
+</spatial>
+<spatial name="S78" width="0.02">
+<site site="site44">
+</site>
+<site site="site42">
+</site>
+</spatial>
+<spatial name="S79" width="0.02">
+<site site="site43">
+</site>
+<site site="site45">
+</site>
+</spatial>
+<spatial name="S80" width="0.02">
+<site site="site40">
+</site>
+<site site="site41">
+</site>
+</spatial>
+<spatial name="S81" width="0.02">
+<site site="site41">
+</site>
+<site site="site43">
+</site>
+</spatial>
+<spatial name="S82" width="0.02">
+<site site="site41">
+</site>
+<site site="site45">
+</site>
+</spatial>
+<spatial name="S83" width="0.02">
+<site site="site43">
+</site>
+<site site="site40">
+</site>
+</spatial>
+<spatial name="S84" width="0.02">
+<site site="site42">
+</site>
+<site site="site40">
+</site>
+</spatial>
+<spatial name="S85" width="0.02">
+<site site="site46">
+</site>
+<site site="site47">
+</site>
+</spatial>
+<spatial name="S86" width="0.02">
+<site site="site44">
+</site>
+<site site="site45">
+</site>
+</spatial>
+<spatial name="S87" width="0.02">
+<site site="site45">
+</site>
+<site site="site46">
+</site>
+</spatial>
+<spatial name="S88" width="0.02">
+<site site="site45">
+</site>
+<site site="site47">
+</site>
+</spatial>
+<spatial name="S89" width="0.02">
+<site site="site46">
+</site>
+<site site="site44">
+</site>
+</spatial>
+<spatial name="S90" width="0.02">
+<site site="site40">
+</site>
+<site site="site44">
 </site>
 </spatial>
 </tendon>
 
 <equality>
-<connect active="true" name="body12body2" body1="body1" body2="body2" anchor=" 2.      0.3054 -0.1763">
+<connect active="true" name="body22body0" body1="body2" body2="body0" anchor="0 0 0">
 </connect>
-<connect active="true" name="body12body0" body1="body1" body2="body0" anchor=" 2.      0.3054 -0.1763">
+<connect active="true" name="body02body11" body1="body0" body2="body11" anchor="-6.1233 -1.4843  2.875 ">
 </connect>
-<connect active="true" name="body32body0" body1="body3" body2="body0" anchor="-2.      0.      0.3527">
+<connect active="true" name="body12body5" body1="body1" body2="body5" anchor="0 0 0">
 </connect>
-<connect active="true" name="body12body4" body1="body1" body2="body4" anchor=" 2.      0.3054 -0.1763">
+<connect active="true" name="body12body14" body1="body1" body2="body14" anchor=" 7.9111 -3.6127  2.875 ">
 </connect>
-<connect active="true" name="body22body5" body1="body2" body2="body5" anchor=" 2.     -0.3054 -0.1763">
+<connect active="true" name="body72body2" body1="body7" body2="body2" anchor="0 0 0">
 </connect>
-<connect active="true" name="body42body5" body1="body4" body2="body5" anchor="-2.      0.3054 -0.1763">
+<connect active="true" name="body52body3" body1="body5" body2="body3" anchor="0 0 0">
 </connect>
-<connect active="true" name="body42body3" body1="body4" body2="body3" anchor="-2.      0.3054 -0.1763">
+<connect active="true" name="body32body13" body1="body3" body2="body13" anchor=" 4.3471 -4.5608  2.875 ">
+</connect>
+<connect active="true" name="body42body8" body1="body4" body2="body8" anchor="0 0 0">
+</connect>
+<connect active="true" name="body42body10" body1="body4" body2="body10" anchor="-0.8268  8.6575  2.875 ">
+</connect>
+<connect active="true" name="body62body8" body1="body6" body2="body8" anchor="0 0 0">
+</connect>
+<connect active="true" name="body62body9" body1="body6" body2="body9" anchor="1.7762 6.0451 2.875 ">
+</connect>
+<connect active="true" name="body122body7" body1="body12" body2="body7" anchor="0 0 0">
+</connect>
+<connect active="true" name="body92body17" body1="body9" body2="body17" anchor="-8.6332 -4.5608  2.875 ">
+</connect>
+<connect active="true" name="body102body20" body1="body10" body2="body20" anchor=" 8.7379 -5.0448  2.875 ">
+</connect>
+<connect active="true" name="body192body11" body1="body19" body2="body11" anchor="0 0 0">
+</connect>
+<connect active="true" name="body122body16" body1="body12" body2="body16" anchor=" 0.     10.0896  2.875 ">
+</connect>
+<connect active="true" name="body152body13" body1="body15" body2="body13" anchor="0 0 0">
+</connect>
+<connect active="true" name="body142body18" body1="body14" body2="body18" anchor="-8.7379 -5.0448  2.875 ">
+</connect>
+<connect active="true" name="body232body15" body1="body23" body2="body15" anchor="0 0 0">
+</connect>
+<connect active="true" name="body262body16" body1="body26" body2="body16" anchor="0 0 0">
+</connect>
+<connect active="true" name="body172body25" body1="body17" body2="body25" anchor=" 8.6332 -4.5608  2.875 ">
+</connect>
+<connect active="true" name="body182body22" body1="body18" body2="body22" anchor="0.8268 8.6575 2.875 ">
+</connect>
+<connect active="true" name="body212body19" body1="body21" body2="body19" anchor="0 0 0">
+</connect>
+<connect active="true" name="body242body20" body1="body24" body2="body20" anchor="0 0 0">
+</connect>
+<connect active="true" name="body242body21" body1="body24" body2="body21" anchor="0.3719 3.6127 1.4375">
+</connect>
+<connect active="true" name="body252body22" body1="body25" body2="body22" anchor="-1.7762  6.0451  2.875 ">
+</connect>
+<connect active="true" name="body232body26" body1="body23" body2="body26" anchor=" 6.1233 -1.4843  2.875 ">
 </connect>
 </equality>
 
 
 <actuator>
-<position tendon="S1" kp="1">
+<position tendon="S1" kp="0">
 </position>
-<position tendon="S2" kp="1">
+<position tendon="S2" kp="0">
 </position>
-<position tendon="S3" kp="1">
+<position tendon="S3" kp="0">
 </position>
-<position tendon="S4" kp="1">
+<position tendon="S4" kp="0">
+</position>
+<position tendon="S5" kp="0">
+</position>
+<position tendon="S6" kp="0">
+</position>
+<position tendon="S7" kp="0">
+</position>
+<position tendon="S8" kp="0">
+</position>
+<position tendon="S9" kp="0">
+</position>
+<position tendon="S10" kp="0">
+</position>
+<position tendon="S11" kp="0">
+</position>
+<position tendon="S12" kp="0">
+</position>
+<position tendon="S13" kp="0">
+</position>
+<position tendon="S14" kp="0">
+</position>
+<position tendon="S15" kp="0">
+</position>
+<position tendon="S16" kp="0">
+</position>
+<position tendon="S17" kp="0">
+</position>
+<position tendon="S18" kp="0">
+</position>
+<position tendon="S19" kp="0">
+</position>
+<position tendon="S20" kp="0">
+</position>
+<position tendon="S21" kp="0">
+</position>
+<position tendon="S22" kp="0">
+</position>
+<position tendon="S23" kp="0">
+</position>
+<position tendon="S24" kp="0">
+</position>
+<position tendon="S25" kp="0">
+</position>
+<position tendon="S26" kp="0">
+</position>
+<position tendon="S27" kp="0">
+</position>
+<position tendon="S28" kp="0">
+</position>
+<position tendon="S29" kp="0">
+</position>
+<position tendon="S30" kp="0">
+</position>
+<position tendon="S31" kp="0">
+</position>
+<position tendon="S32" kp="0">
+</position>
+<position tendon="S33" kp="0">
+</position>
+<position tendon="S34" kp="0">
+</position>
+<position tendon="S35" kp="0">
+</position>
+<position tendon="S36" kp="0">
+</position>
+<position tendon="S37" kp="0">
+</position>
+<position tendon="S38" kp="0">
+</position>
+<position tendon="S39" kp="0">
+</position>
+<position tendon="S40" kp="0">
+</position>
+<position tendon="S41" kp="0">
+</position>
+<position tendon="S42" kp="0">
+</position>
+<position tendon="S43" kp="0">
+</position>
+<position tendon="S44" kp="0">
+</position>
+<position tendon="S45" kp="0">
+</position>
+<position tendon="S46" kp="0">
+</position>
+<position tendon="S47" kp="0">
+</position>
+<position tendon="S48" kp="0">
+</position>
+<position tendon="S49" kp="0">
+</position>
+<position tendon="S50" kp="0">
+</position>
+<position tendon="S51" kp="0">
+</position>
+<position tendon="S52" kp="0">
+</position>
+<position tendon="S53" kp="0">
+</position>
+<position tendon="S54" kp="0">
+</position>
+<position tendon="S55" kp="0">
+</position>
+<position tendon="S56" kp="0">
+</position>
+<position tendon="S57" kp="0">
+</position>
+<position tendon="S58" kp="0">
+</position>
+<position tendon="S59" kp="0">
+</position>
+<position tendon="S60" kp="0">
+</position>
+<position tendon="S61" kp="0">
+</position>
+<position tendon="S62" kp="0">
+</position>
+<position tendon="S63" kp="0">
+</position>
+<position tendon="S64" kp="0">
+</position>
+<position tendon="S65" kp="0">
+</position>
+<position tendon="S66" kp="0">
+</position>
+<position tendon="S67" kp="0">
+</position>
+<position tendon="S68" kp="0">
+</position>
+<position tendon="S69" kp="0">
+</position>
+<position tendon="S70" kp="0">
+</position>
+<position tendon="S71" kp="0">
+</position>
+<position tendon="S72" kp="0">
+</position>
+<position tendon="S73" kp="0">
+</position>
+<position tendon="S74" kp="0">
+</position>
+<position tendon="S75" kp="0">
+</position>
+<position tendon="S76" kp="0">
+</position>
+<position tendon="S77" kp="0">
+</position>
+<position tendon="S78" kp="0">
+</position>
+<position tendon="S79" kp="0">
+</position>
+<position tendon="S80" kp="0">
+</position>
+<position tendon="S81" kp="0">
+</position>
+<position tendon="S82" kp="0">
+</position>
+<position tendon="S83" kp="0">
+</position>
+<position tendon="S84" kp="0">
+</position>
+<position tendon="S85" kp="0">
+</position>
+<position tendon="S86" kp="0">
+</position>
+<position tendon="S87" kp="0">
+</position>
+<position tendon="S88" kp="0">
+</position>
+<position tendon="S89" kp="0">
+</position>
+<position tendon="S90" kp="0">
 </position>
 </actuator>
 
